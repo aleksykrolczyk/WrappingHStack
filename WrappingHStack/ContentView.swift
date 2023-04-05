@@ -8,14 +8,14 @@
 import SwiftUI
 
 struct ContentView: View {
+    let contents = (0 ..< 12).map { String($0) }
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+        WrappingHStack(viewsPerRow: 3) {
+            ForEach(contents, id: \.self) { item in
+                Text(item)
+            }
         }
-        .padding()
     }
 }
 
